@@ -1,0 +1,102 @@
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# ── Virtual Environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.env/
+
+# ── Environment Variables ─────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── FastAPI / Uvicorn ─────────────────────────────────────────────────────────
+*.log
+uvicorn.log
+
+# ── Alembic ───────────────────────────────────────────────────────────────────
+# Keep versions/ and env/ config but ignore local override
+alembic.ini.local
+
+# ── Database ──────────────────────────────────────────────────────────────────
+*.sqlite3
+*.db
+*.dump
+*.sql.bak
+pg_data/
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+nosetests.xml
+pytest.ini.local
+
+# ── Type Checking ─────────────────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyright/
+
+# ── Build / Dist ──────────────────────────────────────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# ── Jupyter (if used for analysis) ───────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Seed / Data Files ─────────────────────────────────────────────────────────
+# Ignore large local data dumps but keep seed scripts
+data/raw/
+data/exports/
+*.csv
+*.parquet
+*.xlsx
+!seed_templates/*.csv
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+# Keep Dockerfile and docker-compose but ignore local override files
+docker-compose.override.yml
+.dockerignore.local
+
+# ── Secrets / Keys ────────────────────────────────────────────────────────────
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+secrets/
+credentials/
+service_account*.json.env
