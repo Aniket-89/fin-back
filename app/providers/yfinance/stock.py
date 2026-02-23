@@ -5,7 +5,6 @@ from typing import List, Dict, Optional
 from sqlalchemy.orm import Session
 from app.providers.base import StockDataProvider
 from app.models.models import Stock
-from app.providers.yfinance._session import get_yf_session
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +22,7 @@ class YfinanceStockDataProvider(StockDataProvider):
         tickers.append("^NSEI")
 
         try:
-            data = yf.download(tickers, period="6mo", interval="1d", session=get_yf_session(), progress=False)
+            data = yf.download(tickers, period="6mo", interval="1d", progress=False)
         except Exception as e:
             logger.error(f"yfinance download failed for sector {sector_id} stocks: {e}")
             return []
@@ -89,7 +88,7 @@ class YfinanceStockDataProvider(StockDataProvider):
             return None
 
         try:
-            data = yf.download(ticker, period="6mo", interval="1d", session=get_yf_session(), progress=False)
+            data = yf.download(ticker, period="6mo", interval="1d", progress=False)
         except Exception as e:
             logger.error(f"yfinance download failed for {ticker}: {e}")
             data = pd.DataFrame()

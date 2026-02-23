@@ -30,9 +30,8 @@ def test_yf():
     """Diagnostic endpoint — surfaces yfinance errors directly in the response."""
     import traceback
     import yfinance as yf
-    from app.providers.yfinance._session import get_yf_session
     try:
-        data = yf.download("TCS.NS", period="5d", interval="1d", session=get_yf_session(), progress=False)
+        data = yf.download("TCS.NS", period="5d", interval="1d", progress=False)
         return {"yfinance_reachable": not data.empty, "rows": len(data), "error": None}
     except Exception as e:
         return {"yfinance_reachable": False, "rows": 0, "error": str(e), "traceback": traceback.format_exc()}
