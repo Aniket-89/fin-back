@@ -23,3 +23,12 @@ app.include_router(audit.router, prefix="/api", tags=["audit"]) # Audit is at /a
 @app.get("/")
 def root():
     return {"message": "System is running"}
+
+
+@app.get("/test-yf")
+def test_yf():
+    """Diagnostic endpoint — checks if yfinance can reach Yahoo Finance from this host."""
+    import yfinance as yf
+    from app.providers.yfinance._session import get_yf_session
+    data = yf.download("TCS.NS", period="5d", interval="1d", session=get_yf_session(), progress=False)
+    return {"yfinance_reachable": not data.empty, "rows": len(data)}
