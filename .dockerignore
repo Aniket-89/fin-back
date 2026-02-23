@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+*.pyo
+.venv
+venv
+env
+.git
+.env
+sql_app.db
+uvicorn.log
+.pytest_cache
+*.log
